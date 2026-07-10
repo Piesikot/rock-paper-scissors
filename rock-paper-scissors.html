@@ -7,4 +7,72 @@
 
   console.log(getComputerChoice(3));
   // Expected output: 0, 1 or 2
+
+  /*
+
+  //SZKIC 
+
+      1. Ekran z informacją wyjaśniającą zasady gry.
+      2. Prompt z wyborem (1.Kamień ; 2.Papier ; 3.Nożyczki)
+      3. Informacja, czy użytkownik wygrał, czy przegrał.
+
+      Funkcja startBattle 
+        7? case'ów:
+        Case.1 remisy: wybór = wybór ✓
+        Case.2: rock vs. paper ✓
+        Case.3: rock vs. scissors ✓
+        Case.X: paper vs. rock TO JUŻ BYŁO W CASE 2
+        Case.4: paper vs. scissors ✓
+        Case.X: scissors vs. rock TO JUŻ BYŁO W CASE 3
+        Case.X: scissors vs. paper TO JUŻ BYŁO W CASE 4
+
+  --------------------------------------------------------------
+
+//PSEUDOCODE
+
+  Funkcja startBattle: 
+
+    Case.1:
+      jeśli playerChoice = computerChoice  
+        score = 'Tie!'
+    Case.2:
+      jeśli playerChoice = rock & computerChoice = paper 
+        score = 'Computer wins!'
+      lub
+      jeśli playerChoice = paper & computerChoice = rock 
+        score = 'Player wins!'
+    Case.3:
+      jeśli playerChoice = rock & computerChoice = scissors
+        score = 'Player wins!'
+      lub
+      jeśli playerChoice = scissors & computerChoice = rock 
+        score = 'Computer wins!'
+    Case.4:
+      jeśli playerChoice = paper  & computerChoice = scissors
+        score =  'Computer wins!'
+      lub
+      jeśli playerChoice = scissors  & computerChoice = paper
+        score = 'Player wins!'
+
+  //GRA
+
+    // Wyświetl: 'Rock Paper Scissors'
+    // Wyświetl: 'Rock beats scissors. Paper beats rock. Scissors beat paper'.
+
+    // Wyświetl: 'Press button to choose:
+      1. = rock
+      2. = paper
+      3. = scissors'
+
+    // Nasłuchuj przycisków klawiatury: '1' ; '2' ; '3' ; 'num1' ; 'num2' ; 'num3' 
+
+    // Zapisz wybór w zmiennej 'playerChoice'
+
+    // Wywołaj funkcję getComputerChoice, i zapisz wynik w zmiennej computerChoice
+
+    // Wywołaj funkcję startBattle
+
+    // Wyświetl: score
+
+*/
 </script>
