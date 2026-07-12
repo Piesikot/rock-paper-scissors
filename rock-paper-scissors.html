@@ -1,78 +1,186 @@
 <script>
-  console.log("Hello World");
+      const bold = "font-weight: bold";
+      //const normal = "font-weight: normal";
 
-  function getComputerChoice(random) {
-    return Math.floor(Math.random() * random);
-  }
+      console.log("%cRock Paper Scissors BETA VERSION", bold);
 
-  console.log(getComputerChoice(3));
-  // Expected output: 0, 1 or 2
+      console.log("");
+      console.log(
+        "Rules: Rock beats scissors. Paper beats rock. Scissors beat paper.",
+      );
+      console.log("");
 
+      function getComputerChoice(random) {
+        return Math.floor(Math.random() * random + 1);
+      }
+
+      // console.log("getComputerChoice(3):" + getComputerChoice(3));
+      // Expected output: 1, 2 or 3
+
+      computerChoice = getComputerChoice(3);
+
+      // console.log("computerChoice:" + computerChoice);
+      
+      // 1. = rock
+      // 2. = paper
+      // 3. = scissors
+
+
+      // DO PRZEPISANIA NA IFY, BO Z CASE'AMI TO NIE DZIAŁA
+    /*
+      let score;
+      // let score = "Score: unknown";
+      let playerChoice = 1;
+      switch (score) {
+        case "tie":
+          score = "Score: Tie!";
+          console.log(score);
+          break;
+        case "playerPaperWins":
+          playerChoice == 2 && computerChoice == 1;
+          score = "Player wins!";
+          console.log(score);
+          break;
+        case "cumputerPaperWins":
+          playerChoice == 1 && computerChoice == 2;
+          score = "Computer wins!";
+          console.log(score);
+          break;
+        case "playerRockWins":
+          playerChoice == 1 && computerChoice == 3;
+          score = "Player wins!";
+          console.log(score);
+          break;
+        case "computerRockWins":
+          playerChoice == 3 && computerChoice == 1;
+          score = "Computer wins!";
+          console.log(score);
+          break;
+        case "computerScissorsWins":
+          playerChoice == 2 && computerChoice == 3;
+          score = "Computer wins!";
+          console.log(score);
+          break;
+        case "playerScissorsWins":
+          playerChoice == 3 && computerChoice == 2;
+          score = "Player wins!";
+          console.log(score);
+          break;
+        // default:
+        //   console.log(`Sorry, we are out of ${score}.`);
+      } */
+
+    // PRZEPISUJĘ NA IFY
+
+      // let score;
+      let score = "Score: unknown";
+      let playerChoice = 1;
+
+      // case "tie":
+      if (playerChoice == computerChoice){
+          score = "Score: Tie!";
+          // console.log(score);
+        }
+      //case "playerPaperWins":
+      else  if (playerChoice == 2 && computerChoice == 1){
+          score = "Player wins!";
+          // console.log(score);
+        }
+      //case "cumputerPaperWins":
+      else if (playerChoice == 1 && computerChoice == 2){
+          score = "Computer wins!";
+          // console.log(score);
+          }
+      else if
+        //case "playerRockWins":
+          (playerChoice == 1 && computerChoice == 3){
+          score = "Player wins!";
+          // console.log(score);
+          }
+      else if
+        //case "computerRockWins":
+          (playerChoice == 3 && computerChoice == 1){
+          score = "Computer wins!";
+          // console.log(score);
+          }
+        else if
+        //case "computerScissorsWins":
+          (playerChoice == 2 && computerChoice == 3){
+          score = "Computer wins!";
+          // console.log(score);
+          }
+        else if
+        //case "playerScissorsWins":
+          (playerChoice == 3 && computerChoice == 2){
+          score = "Player wins!";
+          // console.log(score);
+          };
+
+      console.log(score);
+
+        //SZKIC
   /*
+            1. Ekran z informacją wyjaśniającą zasady gry.
+            2. Prompt z wyborem (1.Kamień ; 2.Papier ; 3.Nożyczki)
+            3. Informacja, czy użytkownik wygrał, czy przegrał.
 
-  //SZKIC 
+            Funkcja startBattle
+              4? case'y:
+              Case.1 remisy: wybór = wybór ✓
+              Case.2: rock vs. paper ✓
+              Case.3: rock vs. scissors ✓
+              Case.X: paper vs. rock TO JUŻ BYŁO W CASE 2
+              Case.4: paper vs. scissors ✓
+              Case.X: scissors vs. rock TO JUŻ BYŁO W CASE 3
+              Case.X: scissors vs. paper TO JUŻ BYŁO W CASE 4
 
-      1. Ekran z informacją wyjaśniającą zasady gry.
-      2. Prompt z wyborem (1.Kamień ; 2.Papier ; 3.Nożyczki)
-      3. Informacja, czy użytkownik wygrał, czy przegrał.
+        --------------------------------------------------------------
 
-      Funkcja startBattle 
-        7? case'ów:
-        Case.1 remisy: wybór = wybór ✓
-        Case.2: rock vs. paper ✓
-        Case.3: rock vs. scissors ✓
-        Case.X: paper vs. rock TO JUŻ BYŁO W CASE 2
-        Case.4: paper vs. scissors ✓
-        Case.X: scissors vs. rock TO JUŻ BYŁO W CASE 3
-        Case.X: scissors vs. paper TO JUŻ BYŁO W CASE 4
+      //PSEUDOCODE
 
-  --------------------------------------------------------------
+        Funkcja startBattle:
 
-//PSEUDOCODE
+          Case.1:
+            jeśli playerChoice = computerChoice
+              score = 'Tie!'
+          Case.2:
+            jeśli playerChoice = rock & computerChoice = paper
+              score = 'Computer wins!'
+            lub
+            jeśli playerChoice = paper & computerChoice = rock
+              score = 'Player wins!'
+          Case.3:
+            jeśli playerChoice = rock & computerChoice = scissors
+              score = 'Player wins!'
+            lub
+            jeśli playerChoice = scissors & computerChoice = rock
+              score = 'Computer wins!'
+          Case.4:
+            jeśli playerChoice = paper  & computerChoice = scissors
+              score =  'Computer wins!'
+            lub
+            jeśli playerChoice = scissors  & computerChoice = paper
+              score = 'Player wins!'
 
-  Funkcja startBattle: 
+        //GRA
 
-    Case.1:
-      jeśli playerChoice = computerChoice  
-        score = 'Tie!'
-    Case.2:
-      jeśli playerChoice = rock & computerChoice = paper 
-        score = 'Computer wins!'
-      lub
-      jeśli playerChoice = paper & computerChoice = rock 
-        score = 'Player wins!'
-    Case.3:
-      jeśli playerChoice = rock & computerChoice = scissors
-        score = 'Player wins!'
-      lub
-      jeśli playerChoice = scissors & computerChoice = rock 
-        score = 'Computer wins!'
-    Case.4:
-      jeśli playerChoice = paper  & computerChoice = scissors
-        score =  'Computer wins!'
-      lub
-      jeśli playerChoice = scissors  & computerChoice = paper
-        score = 'Player wins!'
+          // Wyświetl: 'Rock Paper Scissors'
+          // Wyświetl: 'Rock beats scissors. Paper beats rock. Scissors beat paper'.
 
-  //GRA
+          // Wyświetl: 'Press button to choose:
+            1. = rock
+            2. = paper
+            3. = scissors'
 
-    // Wyświetl: 'Rock Paper Scissors'
-    // Wyświetl: 'Rock beats scissors. Paper beats rock. Scissors beat paper'.
+          // Nasłuchuj przycisków klawiatury: '1' ; '2' ; '3' ; 'num1' ; 'num2' ; 'num3'
 
-    // Wyświetl: 'Press button to choose:
-      1. = rock
-      2. = paper
-      3. = scissors'
+          // Zapisz wybór w zmiennej 'playerChoice'
 
-    // Nasłuchuj przycisków klawiatury: '1' ; '2' ; '3' ; 'num1' ; 'num2' ; 'num3' 
+          // Wywołaj funkcję getComputerChoice, i zapisz wynik w zmiennej computerChoice
 
-    // Zapisz wybór w zmiennej 'playerChoice'
+          // Wywołaj funkcję startBattle
 
-    // Wywołaj funkcję getComputerChoice, i zapisz wynik w zmiennej computerChoice
+          // Wyświetl: score
 
-    // Wywołaj funkcję startBattle
-
-    // Wyświetl: score
-
-*/
+      */
 </script>
