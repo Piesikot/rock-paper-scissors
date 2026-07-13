@@ -18,64 +18,22 @@
       // Expected output: 1, 2 or 3
 
       computerChoice = getComputerChoice(3);
-
       // console.log("computerChoice:" + computerChoice);
       
+      //function getPlayerChoice(){
+       let playerChoice = prompt ('test:');
+       //parseInt(playerChoice);
+      //};
+
       // 1. = rock
       // 2. = paper
       // 3. = scissors
 
-
-      // DO PRZEPISANIA NA IFY, BO Z CASE'AMI TO NIE DZIAŁA
-    /*
-      let score;
-      // let score = "Score: unknown";
-      let playerChoice = 1;
-      switch (score) {
-        case "tie":
-          score = "Score: Tie!";
-          console.log(score);
-          break;
-        case "playerPaperWins":
-          playerChoice == 2 && computerChoice == 1;
-          score = "Player wins!";
-          console.log(score);
-          break;
-        case "cumputerPaperWins":
-          playerChoice == 1 && computerChoice == 2;
-          score = "Computer wins!";
-          console.log(score);
-          break;
-        case "playerRockWins":
-          playerChoice == 1 && computerChoice == 3;
-          score = "Player wins!";
-          console.log(score);
-          break;
-        case "computerRockWins":
-          playerChoice == 3 && computerChoice == 1;
-          score = "Computer wins!";
-          console.log(score);
-          break;
-        case "computerScissorsWins":
-          playerChoice == 2 && computerChoice == 3;
-          score = "Computer wins!";
-          console.log(score);
-          break;
-        case "playerScissorsWins":
-          playerChoice == 3 && computerChoice == 2;
-          score = "Player wins!";
-          console.log(score);
-          break;
-        // default:
-        //   console.log(`Sorry, we are out of ${score}.`);
-      } */
-
-    // PRZEPISUJĘ NA IFY
-
       // let score;
       let score = "Score: unknown";
-      let playerChoice = 1;
+      // let playerChoice = 1;
 
+      function startBattle(){
       // case "tie":
       if (playerChoice == computerChoice){
           score = "Score: Tie!";
@@ -115,7 +73,10 @@
           score = "Player wins!";
           // console.log(score);
           };
+        }
 
+      //getPlayerChoice();
+      startBattle();
       console.log(score);
 
         //SZKIC
