@@ -1,84 +1,5 @@
 <script>
-      const bold = "font-weight: bold";
-      //const normal = "font-weight: normal";
-
-      console.log("%cRock Paper Scissors BETA VERSION", bold);
-
-      console.log("");
-      console.log(
-        "Rules: Rock beats scissors. Paper beats rock. Scissors beat paper.",
-      );
-      console.log("");
-
-      function getComputerChoice(random) {
-        return Math.floor(Math.random() * random + 1);
-      }
-
-      // console.log("getComputerChoice(3):" + getComputerChoice(3));
-      // Expected output: 1, 2 or 3
-
-      computerChoice = getComputerChoice(3);
-      // console.log("computerChoice:" + computerChoice);
-      
-      //function getPlayerChoice(){
-       let playerChoice = prompt ('test:');
-       //parseInt(playerChoice);
-      //};
-
-      // 1. = rock
-      // 2. = paper
-      // 3. = scissors
-
-      // let score;
-      let score = "Score: unknown";
-      // let playerChoice = 1;
-
-      function startBattle(){
-      // case "tie":
-      if (playerChoice == computerChoice){
-          score = "Score: Tie!";
-          // console.log(score);
-        }
-      //case "playerPaperWins":
-      else  if (playerChoice == 2 && computerChoice == 1){
-          score = "Player wins!";
-          // console.log(score);
-        }
-      //case "cumputerPaperWins":
-      else if (playerChoice == 1 && computerChoice == 2){
-          score = "Computer wins!";
-          // console.log(score);
-          }
-      else if
-        //case "playerRockWins":
-          (playerChoice == 1 && computerChoice == 3){
-          score = "Player wins!";
-          // console.log(score);
-          }
-      else if
-        //case "computerRockWins":
-          (playerChoice == 3 && computerChoice == 1){
-          score = "Computer wins!";
-          // console.log(score);
-          }
-        else if
-        //case "computerScissorsWins":
-          (playerChoice == 2 && computerChoice == 3){
-          score = "Computer wins!";
-          // console.log(score);
-          }
-        else if
-        //case "playerScissorsWins":
-          (playerChoice == 3 && computerChoice == 2){
-          score = "Player wins!";
-          // console.log(score);
-          };
-        }
-
-      //getPlayerChoice();
-      startBattle();
-      console.log(score);
-
+  
         //SZKIC
   /*
             1. Ekran z informacją wyjaśniającą zasady gry.
@@ -144,4 +65,144 @@
           // Wyświetl: score
 
       */
+
+
+      const bold = "font-weight: bold";
+      //const normal = "font-weight: normal";
+
+      console.log("%cRock Paper Scissors BETA VERSION", bold);
+
+      console.log("");
+      console.log(
+        "Rules: Rock beats scissors. Paper beats rock. Scissors beat paper.",
+      );
+      //console.log("");
+
+      function getComputerChoice(random) {
+        return Math.floor(Math.random() * random + 1);
+      }
+
+      // console.log("getComputerChoice(3):" + getComputerChoice(3));
+      // Expected output: 1, 2 or 3
+
+      computerChoice = getComputerChoice(3);
+      // console.log("computerChoice:" + computerChoice);
+      
+      //function getPlayerChoice(){
+      // let playerChoice = prompt ('test:');
+      //};
+
+      //let getPlayerChoice;
+
+      // 1. = rock
+      // 2. = paper
+      // 3. = scissors
+
+      // let score;
+      let playerChoice = 'unknown'; 
+      let score = "Score: unknown";
+      
+      console.log(`Press button to choose:
+              1. = rock
+              2. = paper
+              3. = scissors'`);
+
+  console.log("");
+
+
+    function getPlayerChoice(){
+      document.addEventListener('keyup', (getPlayerChoice) => {
+        switch (getPlayerChoice.key) {
+      case '1':
+        console.log("Wcisnales klawisz 1");
+        playerChoice = 1; //rock
+        startBattle();
+        console.log(score);
+        break;
+
+      case '2':
+        console.log("Wcisnales klawisz 2");
+        playerChoice = 2; //paper
+        startBattle();
+        console.log(score);
+        break;
+
+      case '3':
+        console.log("Wcisnales klawisz 3");
+        playerChoice = 3; //scissors
+        startBattle();
+        console.log(score);
+        break;
+
+      default:
+        console.log(`Press button to choose:
+              1. = rock
+              2. = paper
+              3. = scissors'`);
+          }
+        })
+      };
+
+      // document.addEventListener('keydown', function(getPlayerChoice) {
+      //    console.log("jakoś tam zmienna działa!:", test.key);
+      // });
+
+      function startBattle(){
+      // case "tie":
+      if (playerChoice == computerChoice){
+          score = "Score: Tie!";
+          // console.log(score);
+        }
+      //case "playerPaperWins":
+      else  if (playerChoice == 2 && computerChoice == 1){
+          console.log('Player: Paper vs. Computer: Rock');
+          console.log('Paper beats rock.');
+          score = "Player wins!";
+          // console.log(score);
+        }
+      //case "cumputerPaperWins":
+      else if (playerChoice == 1 && computerChoice == 2){
+          console.log('Player: Paper vs. Computer: Rock');
+          console.log('Paper beats rock.');
+          score = "Computer wins!";
+          // console.log(score);
+          }
+      else if
+        //case "playerRockWins":
+          (playerChoice == 1 && computerChoice == 3){
+            console.log('Player: Rock vs. Computer: Scissors');
+            console.log('Rock beats sciccors.');
+          score = "Player wins!";
+          // console.log(score);
+          }
+      else if
+        //case "computerRockWins":
+          (playerChoice == 3 && computerChoice == 1){
+            console.log('Player: Scissors vs. Computer: Rock');
+            console.log('Rock beats sciccors.');
+          score = "Computer wins!";
+          // console.log(score);
+          }
+        else if
+        //case "computerScissorsWins":
+          (playerChoice == 2 && computerChoice == 3){
+            console.log('Player: Paper vs. Computer: Scissors');
+            console.log('Scissors beats paper.');
+          score = "Computer wins!";
+          // console.log(score);
+          }
+        else if
+        //case "playerScissorsWins":
+          (playerChoice == 3 && computerChoice == 2){
+            console.log('Player: Scissors  vs. Computer: Paper;');
+            console.log('Scissors beats paper.');
+          score = "Player wins!";
+          // console.log(score);
+          };
+        }
+
+      getPlayerChoice();
+      startBattle();
+      console.log(score);
+console.log("");
 </script>
