@@ -2,11 +2,20 @@
   
         //SZKIC
   /*
-            1. Ekran z informacją wyjaśniającą zasady gry.
-            2. Prompt z wyborem (1.Kamień ; 2.Papier ; 3.Nożyczki)
-            3. Informacja, czy użytkownik wygrał, czy przegrał.
 
-            Funkcja startBattle
+        
+            1. Ekran z informacją wyjaśniającą zasady gry. ✓
+            2. Prompt z wyborem (1.Kamień ; 2.Papier ; 3.Nożyczki) ✓
+            3. Informacja, czy użytkownik wygrał, czy przegrał. ✓
+
+            + update:
+            u1. Zapytanie o język gry
+              - using the prompt method to get the user’s input. 
+              - function’s language parameter case-insensitive so that players can input “emglis”, “ENGLISH”, “EnglisH”, or other variations.
+            u2. Declare the players score variables
+            u3. Logic to play a single round
+
+            Funkcja startBattle ✓
               4? case'y:
               Case.1 remisy: wybór = wybór ✓
               Case.2: rock vs. paper ✓
@@ -20,45 +29,46 @@
 
       //PSEUDOCODE
 
-        Funkcja startBattle:
+        Funkcja startBattle: ✓
 
-          Case.1:
-            jeśli playerChoice = computerChoice
-              score = 'Tie!'
-          Case.2:
-            jeśli playerChoice = rock & computerChoice = paper
-              score = 'Computer wins!'
+          Case.1:   ✓
+            jeśli playerChoice = computerChoice   ✓
+              score = 'Tie!'    ✓
+          Case.2:     ✓
+            jeśli playerChoice = rock & computerChoice = paper   ✓
+              score = 'Computer wins!'    ✓
             lub
-            jeśli playerChoice = paper & computerChoice = rock
-              score = 'Player wins!'
-          Case.3:
-            jeśli playerChoice = rock & computerChoice = scissors
-              score = 'Player wins!'
+            jeśli playerChoice = paper & computerChoice = rock    ✓
+              score = 'Player wins!'  ✓
+          Case.3: ✓
+            jeśli playerChoice = rock & computerChoice = scissors   ✓
+              score = 'Player wins!'  ✓
             lub
-            jeśli playerChoice = scissors & computerChoice = rock
-              score = 'Computer wins!'
-          Case.4:
-            jeśli playerChoice = paper  & computerChoice = scissors
-              score =  'Computer wins!'
+            jeśli playerChoice = scissors & computerChoice = rock   ✓
+              score = 'Computer wins!'  ✓
+          Case.4: ✓
+            jeśli playerChoice = paper  & computerChoice = scissors   ✓
+              score =  'Computer wins!' ✓
             lub
-            jeśli playerChoice = scissors  & computerChoice = paper
-              score = 'Player wins!'
+            jeśli playerChoice = scissors  & computerChoice = paper ✓
+              score = 'Player wins!'  ✓
 
         //GRA
 
-          // Wyświetl: 'Rock Paper Scissors'
-          // Wyświetl: 'Rock beats scissors. Paper beats rock. Scissors beat paper'.
+          // Wyświetl: 'Rock Paper Scissors'  ✓
+          // Wyświetl: 'Rock beats scissors. Paper beats rock. Scissors beat paper'.  ✓
 
-          // Wyświetl: 'Press button to choose:
+          // Wyświetl: 'Press button to choose: ✓
             1. = rock
             2. = paper
-            3. = scissors'
+            3. = scissors'  ✓
 
-          // Nasłuchuj przycisków klawiatury: '1' ; '2' ; '3' ; 'num1' ; 'num2' ; 'num3'
+          // Nasłuchuj przycisków klawiatury: '1' ; '2' ; '3' ;   ✓
+          // 'num1' ; 'num2' ; 'num3' ?
 
-          // Zapisz wybór w zmiennej 'playerChoice'
+          // Zapisz wybór w zmiennej 'playerChoice' ✓
 
-          // Wywołaj funkcję getComputerChoice, i zapisz wynik w zmiennej computerChoice
+          // Wywołaj funkcję getComputerChoice, i zapisz wynik w zmiennej computerChoice  ✓
 
           // Wywołaj funkcję startBattle
 
@@ -73,24 +83,20 @@
       console.log("%cRock Paper Scissors BETA VERSION", bold);
 
       console.log("");
+      
       console.log(
         "Rules: Rock beats scissors. Paper beats rock. Scissors beat paper.",
       );
+
       //console.log("");
 
-      function getComputerChoice(random) {
-        return Math.floor(Math.random() * random + 1);
-      }
+      //u1. languageChoice
 
-      // console.log("getComputerChoice(3):" + getComputerChoice(3));
-      // Expected output: 1, 2 or 3
-
-      computerChoice = getComputerChoice(3);
-      // console.log("computerChoice:" + computerChoice);
-      
-      //function getPlayerChoice(){
-      // let playerChoice = prompt ('test:');
-      //};
+      // function getLanguage(){
+      // let lang = prompt (' English / Polski ? ');
+      //  console.log(lang);
+      // };
+      // getLanguage();
 
       //let getPlayerChoice;
 
@@ -108,7 +114,6 @@
               3. = scissors'`);
 
   console.log("");
-
 
     function getPlayerChoice(){
       document.addEventListener('keyup', (getPlayerChoice) => {
@@ -147,9 +152,23 @@
       //    console.log("jakoś tam zmienna działa!:", test.key);
       // });
 
+
+
+      function getComputerChoice(random) {
+        return Math.floor(Math.random() * random + 1);
+      }
+
+      // console.log("getComputerChoice(3):" + getComputerChoice(3));
+      // Expected output: 1, 2 or 3
+
+      computerChoice = getComputerChoice(3);
+      // console.log("computerChoice:" + computerChoice);
+    
+
       function startBattle(){
       // case "tie":
       if (playerChoice == computerChoice){
+        //console.log(`Player: ${playerChoice}`+(' vs. ')+`Computer:${computerChoice}`);
           score = "Score: Tie!";
           // console.log(score);
         }
