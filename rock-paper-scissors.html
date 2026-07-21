@@ -9,7 +9,7 @@
             3. Informacja, czy użytkownik wygrał, czy przegrał. ✓
 
             + update:
-            u1. Zapytanie o język gry LATER
+            u1. Zapytanie o język gry - PRZEŁOŻONE DO CZASU PROJEKTOWANIA
               - using the prompt method to get the user’s input. 
               - function’s language parameter case-insensitive so that players can input “emglis”, “ENGLISH”, “EnglisH”, or other variations. LATER
             u2. Declare the players score variables ✓
@@ -108,44 +108,49 @@ console.log("");
       let playerChoice = 'unknown'; 
       let playerScore = 0;
       let computerScore = 0
-      let roundScore = 0;
+      let roundNumber = 1;
+      //let roundScore = 0;
       
-      console.log(`Press button to choose:
+      console.log(`Press number button to choose champion, then press Enter to start round.
               1. = rock
               2. = paper
-              3. = scissors'`);
+              3. = scissors`);
+      console.log("");
 
-  console.log("");
+
 
     function getPlayerChoice(){
       document.addEventListener('keyup', (getPlayerChoice) => {
         switch (getPlayerChoice.key) {
       case '1':
-        console.log("Wcisnales klawisz 1");
+        //console.log("Wcisnales klawisz 1");
+        console.log('Player has chosen a champion.');
         playerChoice = 'rock'; //rock
-        startBattle();
+        //startBattle();
         //console.log(`Player score:${playerScore} | Computer score:${computerScore}`);
         break;
 
       case '2':
-        console.log("Wcisnales klawisz 2");
+        //console.log("Wcisnales klawisz 2");
+        console.log('Player has chosen a champion.');
         playerChoice = 'paper'; //paper
-        startBattle();
+        //startBattle();
         //console.log(`Player score:${playerScore} | Computer score:${computerScore}`);
         break;
 
       case '3':
-        console.log("Wcisnales klawisz 3");
+        // console.log("Wcisnales klawisz 3");
+        console.log('Player has chosen a champion.');
         playerChoice = 'scissors'; //scissors
-        startBattle();
+        //startBattle();
         //console.log(`Player score:${playerScore} | Computer score:${computerScore}`);
         break;
 
       default:
-        console.log(`Press button to choose:
-              1. = rock
-              2. = paper
-              3. = scissors'`);
+        // console.log(`Press button to choose:
+        //       1. = rock
+        //       2. = paper
+        //       3. = scissors'`);
           }
         })
       };
@@ -154,31 +159,40 @@ console.log("");
       //    console.log("jakoś tam zmienna działa!:", test.key);
       // });
 
-      function getComputerChoice(random) {
+      //function getComputerChoice(random) {
+        //return Math.floor(Math.random() * random + 1);
+      //}
+
+      //computerChoice = getComputerChoice(3);
+       //ⓘ  kod uruchamia się raz przy starcie programu -> gra używa cały czas tej samej liczby.
+
+       function drawRandomNumber(random) {
         return Math.floor(Math.random() * random + 1);
       }
-        computerChoice = getComputerChoice(3);
 
-        switch (computerChoice) {
+      let computerChoice;
+      function getComputerChoice () {
+        switch (drawRandomNumber(3)) {
           case 1: 
-            console.log('computerChoice = rock;');
+            //console.log('computerChoice = rock;');
             computerChoice = 'rock';
           break;
-          case 2:console.log('computerChoice = paper;');
+          case 2:
+            //console.log('computerChoice = paper');
             computerChoice = 'paper';
             break;
           case 3:
-            console.log('computerChoice = scissors;');
+            //console.log('computerChoice = scissors;');
             computerChoice = 'scissors';
           break;
         }    
+      }
 
       // console.log("getComputerChoice(3):" + getComputerChoice(3));
       // Expected output: 1, 2 or 3
 
       //computerChoice = getComputerChoice(3);
-     //console.log("computerChoice:" + computerChoice);
-    
+      //console.log("computerChoice:" + computerChoice);
 
       function startBattle(){
       // case "tie":
@@ -243,7 +257,7 @@ console.log("");
         else if
         //case "playerScissorsWins":
           (playerChoice == 'scissors' && computerChoice == 'paper'){
-            console.log('Player: Scissors  vs. Computer: Paper;');
+            console.log('Player: Scissors  vs. Computer: Paper');
             console.log('Scissors beats paper.');
           //score = "Player wins!";
           // console.log(score);
@@ -251,11 +265,60 @@ console.log("");
           playerScore++;
           console.log(`Player score:${playerScore} | Computer score:${computerScore}`);
           };
-        }
-
+          
+          //console.log(`Player score:${playerScore} | Computer score:${computerScore}`);
+        };
+       
+    function startRound(){
+      console.log('');
+      // if (roundNumber > 0){
+      console.log(`round ${roundNumber} has started!`)
+      // };
+      getComputerChoice(); 
+        console.log(`computerChoice:${computerChoice}`);
       getPlayerChoice();
+        console.log(`playerChoice:${playerChoice}`);
       startBattle();
-      console.log("");
-      console.log(`Round score:${roundScore}`);
-      console.log("");
+      //computerChoice = getComputerChoice(3);
+playerChoice = 'unknown';
+//console.log(`NOWY PLAYER CHOICE ${playerChoice}`);
+      return roundNumber++;
+      
+      //console.log(`Player score:${playerScore} | Computer score:${computerScore}`);
+    };
+    
+    document.addEventListener('keydown', (event) => {
+
+           if (playerChoice == 'unknown' && event.key === 'Enter') {
+   console.log(`Round cannot start: player has not chosen a champion.`);
+  } else if (playerChoice != 'unknown' && event.key === 'Enter') {
+    //console.log('teraz playerChoice NIE jest unknown');
+    startRound();
+  };
+  // else {
+  //   console.log("Warunek 3: wciśnięto inny klawisz lub warunek nie pasuje");
+  // }
+        });
+
+        //startRound();
+        //startBattle();
+      getComputerChoice(); 
+       // console.log(`computerChoice:${computerChoice}`);
+      getPlayerChoice();
+        
+        //else{ console.log('P'); }     
+       
+// startRound();
+// console.log(`Player score:${playerScore} | Computer score:${computerScore}`);
+      // getPlayerChoice();
+      // startBattle();
+      // console.log("");
+      // console.log(`Round score:${roundScore}`);
+      // console.log("");
+
+//let newComputerChoice = getComputerChoice(3);
+//console.log(newComputerChoice);
+
+//console.log(computerChoice);
+
 </script>
