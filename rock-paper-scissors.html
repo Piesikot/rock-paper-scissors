@@ -121,8 +121,16 @@ function playGame(){
       console.log("");
 
     function getPlayerChoice(){
-      //if ( playerScore != 3) {
+
       document.addEventListener('keyup', (getPlayerChoice) => {
+      if ( playerScore == 3 &&  (['1', '2', '3'].includes(event.key)) ) {
+        console.log('GAME OVER: PLAYER HAS WON THE GAME!');
+      } else if ( computerScore == 3 &&  (['1', '2', '3'].includes(event.key)) ) {
+        console.log('GAME OVER: COMPUTER HAS WON THE GAME!');
+      } else 
+
+
+
         switch (getPlayerChoice.key) {
       case '1':
         //console.log("Wcisnales klawisz 1");
@@ -154,7 +162,7 @@ function playGame(){
         //       2. = paper
         //       3. = scissors'`);
           } 
-        })
+        });
       // } else {return console.log('THE GAME IS OVER');}
 }
       // document.addEventListener('keydown', function(getPlayerChoice) {
@@ -293,8 +301,12 @@ playerChoice = 'unknown';
     };
     
   document.addEventListener('keydown', (event) => {
-  if (playerChoice == 'unknown' && event.key === 'Enter') {
+  if (event.key === 'Enter' && playerChoice == 'unknown' && playerScore != 3 && computerScore != 3 ) {
    console.log(`Round cannot start: player has not chosen a champion.`);
+  }else if (event.key === 'Enter' && playerChoice == 'unknown' && playerScore != 3 && computerScore === 3 ) {
+    console.log('GAME OVER: COMPUTER HAS WON THE GAME!');
+  }else if (event.key === 'Enter' && playerChoice == 'unknown' && playerScore === 3 && computerScore != 3 ) {
+    console.log('GAME OVER: PLAYER HAS WON THE GAME!');
   } else if (playerChoice != 'unknown' && event.key === 'Enter') {
     //console.log('teraz playerChoice NIE jest unknown');
     startRound();
