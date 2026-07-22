@@ -104,12 +104,15 @@ console.log("");
       // 2. = paper
       // 3. = scissors
 
-      // let score;
+// let score;
       let playerChoice = 'unknown'; 
       let playerScore = 0;
       let computerScore = 0
       let roundNumber = 1;
       //let roundScore = 0;
+
+function playGame(){
+      
       
       console.log(`Press number button to choose champion, then press Enter to start round.
               1. = rock
@@ -117,9 +120,8 @@ console.log("");
               3. = scissors`);
       console.log("");
 
-
-
     function getPlayerChoice(){
+      //if ( playerScore != 3) {
       document.addEventListener('keyup', (getPlayerChoice) => {
         switch (getPlayerChoice.key) {
       case '1':
@@ -151,10 +153,10 @@ console.log("");
         //       1. = rock
         //       2. = paper
         //       3. = scissors'`);
-          }
+          } 
         })
-      };
-
+      // } else {return console.log('THE GAME IS OVER');}
+}
       // document.addEventListener('keydown', function(getPlayerChoice) {
       //    console.log("jakoś tam zmienna działa!:", test.key);
       // });
@@ -211,9 +213,9 @@ console.log("");
           playerScore++;
           console.log(`Player score:${playerScore} | Computer score:${computerScore}`);
         }
-      //case "cumputerPaperWins":
+      //case "computerPaperWins":
       else if (playerChoice == 'rock' && computerChoice == 'paper'){
-          console.log('Player: Paper vs. Computer: Rock');
+          console.log('Player: Rock vs. Computer: Paper');
           console.log('Paper beats rock.');
           //score = "Computer wins!";
           // console.log(score);
@@ -270,6 +272,9 @@ console.log("");
         };
        
     function startRound(){
+      if (playerScore === 3){console.log('PLAYER HAS WON THE GAME!')
+      } else if (computerScore === 3) {console.log('COMPUTER HAS WON THE GAME!')
+      } else {
       console.log('');
       // if (roundNumber > 0){
       console.log(`round ${roundNumber} has started!`)
@@ -283,13 +288,12 @@ console.log("");
 playerChoice = 'unknown';
 //console.log(`NOWY PLAYER CHOICE ${playerChoice}`);
       return roundNumber++;
-      
       //console.log(`Player score:${playerScore} | Computer score:${computerScore}`);
+      }
     };
     
-    document.addEventListener('keydown', (event) => {
-
-           if (playerChoice == 'unknown' && event.key === 'Enter') {
+  document.addEventListener('keydown', (event) => {
+  if (playerChoice == 'unknown' && event.key === 'Enter') {
    console.log(`Round cannot start: player has not chosen a champion.`);
   } else if (playerChoice != 'unknown' && event.key === 'Enter') {
     //console.log('teraz playerChoice NIE jest unknown');
@@ -299,13 +303,12 @@ playerChoice = 'unknown';
   //   console.log("Warunek 3: wciśnięto inny klawisz lub warunek nie pasuje");
   // }
         });
-
         //startRound();
         //startBattle();
       getComputerChoice(); 
        // console.log(`computerChoice:${computerChoice}`);
       getPlayerChoice();
-        
+      
         //else{ console.log('P'); }     
        
 // startRound();
@@ -320,5 +323,7 @@ playerChoice = 'unknown';
 //console.log(newComputerChoice);
 
 //console.log(computerChoice);
+};
+      playGame();
 
 </script>
